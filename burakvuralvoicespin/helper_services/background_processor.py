@@ -5,13 +5,14 @@ import os
 import django
 from background_task import background
 
-from helper_services.async_request_sender import make_heavy_operation
+
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 django.setup()
 
-from helper_services.redis_request_cache import red_client
+from async_request_sender import make_heavy_operation
+from redis_request_cache import red_client
 
 
 def evaluate_heavy_operations_request_to_database():
