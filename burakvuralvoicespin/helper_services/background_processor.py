@@ -1,13 +1,5 @@
-
-import os
-
-
 import django
 from background_task import background
-
-
-
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 django.setup()
 
