@@ -22,7 +22,12 @@ async def send_request_to_callback(duration, callback_url):
 
 
 def make_heavy_operation(redis_value_list):
-    time.sleep(5)
-    redis_value_str = redis_value_list[0]
-    redis_value_json = json.loads(redis_value_str)
-    return asyncio.run(send_request_to_callback(redis_value_json['duration'], redis_value_json['callback_url']))
+    try:
+        time.sleep(5)
+        redis_value_str = redis_value_list[0]
+        redis_value_json = json.loads(redis_value_str)
+        return asyncio.run(send_request_to_callback(redis_value_json['duration'], redis_value_json['callback_url']))
+    except Exception as e:
+        print(e)
+        logger.exception(e)
+        return e
