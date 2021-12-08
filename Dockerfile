@@ -6,7 +6,7 @@ ENV DJANGO_SETTINGS_MODULE=burakvuralvoicespin.settings
 MAINTAINER Burak Vural <burakvural93>
 EXPOSE 7000
 
-COPY ./burakvuralvoicespin/burakvuralvoicespin /burakvuralvoicespin-test/
+COPY ./burakvuralvoicespin /burakvuralvoicespin-test/
 WORKDIR /burakvuralvoicespin-test
 RUN pip install -r requirements.txt
 RUN ["chmod", "+x", "/burakvuralvoicespin-test/init_task_voicespin.sh"]
