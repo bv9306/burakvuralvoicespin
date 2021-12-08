@@ -12,6 +12,7 @@ async def send_request_to_callback(duration, callback_url):
     async with aiohttp.ClientSession() as session:
         try:
             print(f'Trying to send request {callback_url}')
+            logger.info(f'Trying to send request {callback_url}')
             headers = {'Content-Type': 'application/json'}
             duration = {"duration": duration, "calculation_operation_status": "completed"}
             async with session.post(callback_url, data=json.dumps(duration), headers=headers) as resp:

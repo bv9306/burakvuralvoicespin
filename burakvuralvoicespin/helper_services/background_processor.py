@@ -14,7 +14,7 @@ django.setup()
 from burakvuralvoicespin.helper_services.redis_request_cache import red_client
 
 
-def make_heavy_operations_request_to_database():
+def evaluate_heavy_operations_request_to_database():
     while True:
         keys = red_client.keys()
         if keys is not None:
@@ -24,9 +24,6 @@ def make_heavy_operations_request_to_database():
                     value = red_client.lrange(key, 0, -1)
                     make_heavy_operation(value)
                     red_client.delete(key)
-            # last_requests = red_client.lpop('requests')
-            # payload = json.loads(red_client.lpop('requests'))
-            # print(payload)
 
 
-make_heavy_operations_request_to_database()
+evaluate_heavy_operations_request_to_database()
