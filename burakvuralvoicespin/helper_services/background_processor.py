@@ -1,7 +1,4 @@
-import django
 from background_task import background
-
-django.setup()
 
 from async_request_sender import make_heavy_operation
 from redis_request_cache import red_client
