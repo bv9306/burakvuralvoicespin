@@ -2,6 +2,7 @@
 
 echo "Voicespin settings file is $DJANGO_SETTINGS_MODULE"
 set -x
+python manage.py makemigrations
 python manage.py migrate
 python /helperservices/background_processor.py &
 python manage.py process_tasks >/dev/null 2>&1 &
