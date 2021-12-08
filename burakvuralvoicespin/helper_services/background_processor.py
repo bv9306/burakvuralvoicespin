@@ -7,7 +7,7 @@ from background_task import background
 
 from helper_services.async_request_sender import make_heavy_operation
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'burakvuralvoicespin.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 django.setup()
 
