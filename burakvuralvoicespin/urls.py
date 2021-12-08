@@ -16,7 +16,7 @@ Including another URLconf
 from django.urls import path
 from django.conf.urls import url
 
-from burakvuralvoicespin.burakvuralvoicespin.views import PerfAPIView
+from burakvuralvoicespin.views import PerfAPIView
 
 urlpatterns = [
     path(r'perf', PerfAPIView.as_view(), name='perf'),

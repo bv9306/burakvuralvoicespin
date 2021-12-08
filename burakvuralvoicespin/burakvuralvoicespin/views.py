@@ -1,7 +1,7 @@
 from django.http import JsonResponse, HttpResponse
 from rest_framework import generics, status
 
-from burakvuralvoicespin.helper_services.redis_request_cache import write_request_to_redis
+from helper_services.redis_request_cache import write_request_to_redis
 
 
 class PerfAPIView(generics.CreateAPIView):
