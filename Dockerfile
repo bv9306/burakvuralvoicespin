@@ -1,7 +1,7 @@
 FROM python:3.9.1
 
 ENV PYTHONUNBUFFERED 1
-ENV DJANGO_SETTINGS_MODULE=task_burak_vural.settings
+ENV DJANGO_SETTINGS_MODULE=burakvuralvoicespin.settings
 
 MAINTAINER Burak Vural <burakvural93>
 EXPOSE 7000
