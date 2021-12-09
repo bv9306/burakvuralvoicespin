@@ -3,8 +3,6 @@ from background_task import background
 from async_request_sender import make_heavy_operation
 from redis_request_cache import red_client
 
-processes = []
-
 
 def evaluate_heavy_operations_request_to_database():
     while True:
@@ -18,13 +16,4 @@ def evaluate_heavy_operations_request_to_database():
                     red_client.delete(key)
 
 
-def start_processes_as_multithread(processes):
-    if processes is not None and len(processes) > 0:
-        for process in processes:
-            process.start()
-        for process in processes:
-            process.join()
-
-
 evaluate_heavy_operations_request_to_database()
-start_processes_as_multithread(processes)
