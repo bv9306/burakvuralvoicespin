@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.http import JsonResponse, HttpResponse
 from rest_framework import generics, status
 
@@ -8,6 +10,7 @@ class PerfAPIView(generics.CreateAPIView):
     def post(self, request, *args, **kwargs):
         duration = request.data.get("duration")
         callback_url = request.data.get("callback_url")
+        request["start_time"] = datetime.utcnow()
         if duration is None or callback_url is None:
             return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
 
