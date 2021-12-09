@@ -15,7 +15,7 @@ async def send_request_to_callback(duration, start_time, callback_url):
             print(f'Trying to send request {callback_url}')
             logger.info(f'Trying to send request {callback_url}')
             headers = {'Content-Type': 'application/json'}
-            duration = {"duration": duration, "start_time": start_time, "end_time": datetime.utcnow(),
+            duration = {"duration": duration, "start_time": start_time, "end_time": str(datetime.utcnow()),
                         "calculation_operation_status": "completed"}
             async with session.post(callback_url, data=json.dumps(duration), headers=headers) as resp:
                 await resp.json(content_type=None)
