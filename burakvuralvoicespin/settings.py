@@ -71,7 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wsgi.application'
 
-IS_MONKEY_ENABLED = False
+IS_MONKEY_ENABLED = True
 
 
 # Database
