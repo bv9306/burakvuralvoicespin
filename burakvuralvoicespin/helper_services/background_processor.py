@@ -17,12 +17,13 @@ def evaluate_heavy_operations_request_to_database():
 
 
 def process_simultaneous_threads():
-    if processes is not None and len(processes) > 0:
-        for process in processes:
-            process.start()
-        for process in processes:
-            process.join()
-            processes.remove(process)
+    while True:
+        if processes is not None and len(processes) > 0:
+            for process in processes:
+                process.start()
+            for process in processes:
+                process.join()
+                processes.remove(process)
 
 
 evaluate_heavy_operations_request_to_database()
