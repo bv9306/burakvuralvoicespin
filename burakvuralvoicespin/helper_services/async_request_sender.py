@@ -29,7 +29,6 @@ def make_heavy_operation(redis_value_list):
     try:
         process = Process(target=calculate)
         process.start()
-        process.join()
         redis_value_str = redis_value_list[0]
         redis_value_json = json.loads(redis_value_str)
         return asyncio.run(send_request_to_callback(redis_value_json['duration'], redis_value_json['start_time'],
