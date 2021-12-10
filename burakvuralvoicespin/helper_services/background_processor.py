@@ -20,12 +20,14 @@ def evaluate_heavy_operations_request_to_database():
                         red_client.delete(key)
 
             if processes is not None and len(processes) > 0:
+                print('starting next process')
                 for process in processes:
                     process.start()
+                    processes.remove(process)
                 for process in processes:
                     process.join()
-                    print('registering next process')
-                    processes.remove(process)
+
+
         except Exception as e:
             print(e)
 
