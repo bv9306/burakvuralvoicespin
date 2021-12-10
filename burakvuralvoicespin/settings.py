@@ -71,6 +71,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wsgi.application'
 
+IS_MONKEY_ENABLED = True
+
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
