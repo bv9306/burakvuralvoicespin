@@ -29,16 +29,16 @@ async def send_request_to_callback(duration, start_time, callback_url):
 
 def make_heavy_operation(redis_value_list):
     try:
-        processes.append(Process(target=calculate, args=redis_value_list))
+        processes.append(Process(target=calculate, args=(redis_value_list[0],)))
     except Exception as e:
         print(e)
         logger.exception(e)
         return e
 
 
-def calculate(redis_value_list):
+def calculate(redis_value):
     time.sleep(15)
-    redis_value_str = redis_value_list[0]
+    redis_value_str = redis_value
     redis_value_json = json.loads(redis_value_str)
     return asyncio.run(send_request_to_callback(redis_value_json['duration'], redis_value_json['start_time'],
                                                 redis_value_json['callback_url']))

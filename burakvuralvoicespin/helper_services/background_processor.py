@@ -15,9 +15,6 @@ def evaluate_heavy_operations_request_to_database():
                     make_heavy_operation(value)
                     red_client.delete(key)
 
-
-def process_simultaneous_threads():
-    while True:
         if processes is not None and len(processes) > 0:
             for process in processes:
                 process.start()
@@ -27,4 +24,3 @@ def process_simultaneous_threads():
 
 
 evaluate_heavy_operations_request_to_database()
-process_simultaneous_threads()
