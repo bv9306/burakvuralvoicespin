@@ -18,8 +18,8 @@ def evaluate_heavy_operations_request_to_database():
         if processes is not None and len(processes) > 0:
             for process in processes:
                 process.start()
-            for process in processes:
                 process.join()
+                print('registering next process')
                 processes.remove(process)
 
 

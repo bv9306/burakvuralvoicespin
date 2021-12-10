@@ -38,7 +38,8 @@ def make_heavy_operation(redis_value_list):
 
 def calculate(redis_value):
     time.sleep(15)
+    print('calculation will be implemented')
     redis_value_str = redis_value
     redis_value_json = json.loads(redis_value_str)
-    return asyncio.run(send_request_to_callback(redis_value_json['duration'], redis_value_json['start_time'],
+    asyncio.run(send_request_to_callback(redis_value_json['duration'], redis_value_json['start_time'],
                                                 redis_value_json['callback_url']))
