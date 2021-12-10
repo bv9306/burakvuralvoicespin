@@ -3,6 +3,8 @@ import json
 import logging
 import time
 from datetime import datetime
+from multiprocessing import Process
+import multiprocessing
 
 import aiohttp
 
@@ -25,7 +27,9 @@ async def send_request_to_callback(duration, start_time, callback_url):
 
 def make_heavy_operation(redis_value_list):
     try:
-        time.sleep(15)
+        process = Process(target=calculate)
+        process.start()
+        process.join()
         redis_value_str = redis_value_list[0]
         redis_value_json = json.loads(redis_value_str)
         return asyncio.run(send_request_to_callback(redis_value_json['duration'], redis_value_json['start_time'],
@@ -34,3 +38,7 @@ def make_heavy_operation(redis_value_list):
         print(e)
         logger.exception(e)
         return e
+
+
+def calculate():
+    time.sleep(15)
