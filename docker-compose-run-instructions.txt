@@ -1,6 +1,17 @@
 In order to run project please follow the instructions
+First of all unzip file "voice-spin-compose.zip"
 
 1-) Edit .env file via "vim .env"
 2-) Change 192.168.1.4 with your local WSL ubuntu address or Virtual Machine public IP address
 3-) Run following command "docker-compose -f burakvoicespin.yml up -d" to pull already pushed latest python app image ,redis and postgresql
 4-) Run "docker ps" to be sure about all docker containers are in running state
+5-) Import Postman Collection "VoiceSpin.postman_collection.json"
+6-) Change the ip address in request and callback_url parameter(which has been tried with "https://web.hook.sh")
+7-) Sample curl request like below :
+
+    curl --location --request POST 'http://192.168.1.4:7000/perf' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{
+                "duration":22,
+                "callback_url":"https://web.hook.sh/ada23cb7-021c-40a5-a229-4475f357ddf0"
+            }'

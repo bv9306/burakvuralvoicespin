@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "e1c82703-0035-4df1-834c-4345662d9bf9",
+		"name": "VoiceSpin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "voicespin request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"duration\":180000,\r\n    \"callback_url\":\"https://webhook.site/694107e7-18e2-4e20-bc0f-662983002633\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.48.1:7000/perf",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"48",
+						"1"
+					],
+					"port": "7000",
+					"path": [
+						"perf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
