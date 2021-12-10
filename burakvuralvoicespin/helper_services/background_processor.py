@@ -8,6 +8,7 @@ from redis_request_cache import red_client
 
 def evaluate_heavy_operations_request_to_database():
     while True:
+        time.sleep(5)
         keys = red_client.keys()
         if keys is not None:
             for key in keys:
@@ -17,9 +18,6 @@ def evaluate_heavy_operations_request_to_database():
                     make_heavy_operation(value)
                     red_client.delete(key)
 
-def evaluate_processes_at_cron():
-    while True:
-        time.sleep(5)
         if processes is not None and len(processes) > 0:
             for process in processes:
                 process.start()
@@ -30,4 +28,3 @@ def evaluate_processes_at_cron():
 
 
 evaluate_heavy_operations_request_to_database()
-evaluate_processes_at_cron()
