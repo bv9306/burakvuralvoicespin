@@ -1,0 +1,5 @@
+These commands will build image according to Dockerfile and push image to burakvural93 dockerhub repositort
+Run these commands in same directory of Dockerfile
+
+1-) docker build -f Dockerfile -t burakvural93/burakvuralvoicespin .
+2-) docker push burakvural93/burakvuralvoicespin
