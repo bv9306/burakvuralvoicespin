@@ -1,3 +1,5 @@
+import time
+
 from background_task import background
 
 from async_request_sender import make_heavy_operation, processes
@@ -15,13 +17,16 @@ def evaluate_heavy_operations_request_to_database():
                     make_heavy_operation(value)
                     red_client.delete(key)
 
-        if processes is not None and len(processes) > 0:
-            for process in processes:
-                process.start()
-            for process in processes:
-                process.join()
-                print('registering next process')
-                processes.remove(process)
+def evaluate_processes_at_cron():
+    time.sleep(5)
+    if processes is not None and len(processes) > 0:
+        for process in processes:
+            process.start()
+        for process in processes:
+            process.join()
+            print('registering next process')
+            processes.remove(process)
 
 
 evaluate_heavy_operations_request_to_database()
+evaluate_processes_at_cron()
