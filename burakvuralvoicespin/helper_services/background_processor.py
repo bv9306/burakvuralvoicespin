@@ -1,6 +1,6 @@
 from background_task import background
 
-from async_request_sender import make_heavy_operation
+from async_request_sender import make_heavy_operation, processes
 from redis_request_cache import red_client
 
 
@@ -16,4 +16,14 @@ def evaluate_heavy_operations_request_to_database():
                     red_client.delete(key)
 
 
+def process_simultaneous_threads():
+    if processes is not None and len(processes) > 0:
+        for process in processes:
+            process.start()
+        for process in processes:
+            process.join()
+            processes.remove(process)
+
+
 evaluate_heavy_operations_request_to_database()
+process_simultaneous_threads()
