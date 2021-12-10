@@ -1,0 +1,6 @@
+In order to run project please follow the instructions
+
+1-) Edit .env file via "vim .env"
+2-) Change 192.168.1.4 with your local WSL ubuntu address or Virtual Machine public IP address
+3-) Run following command "docker-compose -f burakvoicespin.yml up -d" to pull already pushed latest python app image ,redis and postgresql
+4-) Run "docker ps" to be sure about all docker containers are in running state
