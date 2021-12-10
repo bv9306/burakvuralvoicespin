@@ -6,4 +6,4 @@ python manage.py makemigrations
 python manage.py migrate
 python /burakvuralvoicespin-test/helper_services/background_processor.py &
 python manage.py process_tasks >/dev/null 2>&1 &
-gunicorn -c gunicorn_conf.py --preload burakvuralvoicespin.wsgi:application
+gunicorn -c gunicorn_conf.py --preload wsgi:application
